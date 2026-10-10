@@ -19,7 +19,10 @@ source.include_exts = py,kv,png,jpg,json,atlas
 version = 1.0.0
 
 # (list) Application requirements
-requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,urllib3,requests,certifi,openssl,idna,plyer,android
+requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,urllib3,requests,certifi,idna,plyer,android
+
+# (str) Custom source folders for python modules
+# source.include_patterns = assets/*,images/*.png
 
 # (str) Presplash image and Icon
 presplash.filename = %(source.dir)s/logo.png
@@ -27,6 +30,9 @@ icon.filename = %(source.dir)s/logo.png
 
 # (str) Supported orientation
 orientation = portrait
+
+# (list) List of services to declare
+# services =
 
 # --- PERMISSIONS ANDROID ---
 android.permissions = INTERNET, ACCESS_NETWORK_STATE, CAMERA, RECORD_AUDIO, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, READ_MEDIA_IMAGES, READ_PHONE_STATE
@@ -36,13 +42,17 @@ android.api = 33
 android.minapi = 24
 android.ndk = 25b
 
-# Cible uniquement l'architecture 64 bits (évite les échecs de build mémoire/NDK)
+# Cible uniquement l'architecture 64 bits (évite les échecs de build mémoire)
 android.archs = arm64-v8a
 
 android.presplash_color = #673AB7
 
 # (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
+
+# (string) Key store password
+# android.keystore_password = 
+# android.keyalias_password =
 
 # (bool) Accept SDK license automatically
 android.accept_sdk_license = True
@@ -54,3 +64,9 @@ log_level = 2
 
 # (int) Display warning if buildozer is run as root
 warn_on_root = 1
+
+# (str) Path to build artifact storage, relative to the spec file
+# build_dir = .buildozer
+
+# (str) Path to build output (bin)
+# bin_dir = ./bin
