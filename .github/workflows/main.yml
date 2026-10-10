@@ -6,18 +6,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04  # Forcé à ubuntu-22.04 pour éviter l'erreur du dépôt Java
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Build with Buildozer
-      uses: ArtemSBulgakov/buildozer-action@v1
-      id: buildozer
-      with:
-        command: buildozer android debug
-        buildozer_version: stable
+    - name: Build with Official Kivy Buildozer Docker
+      run: |
+        docker run --rm \
+          -v ${{ github.workspace }}:/home/user/hostcwd \
+          ghcr.io/kivy/buildozer:latest \
+          buildozer android debug
 
     - name: Upload APK artifact
       uses: actions/upload-artifact@v4
