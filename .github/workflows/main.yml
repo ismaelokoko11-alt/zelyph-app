@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # Forcé à ubuntu-22.04 pour éviter l'erreur du dépôt Java
 
     steps:
     - name: Checkout code
