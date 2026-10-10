@@ -19,7 +19,6 @@ source.include_exts = py,kv,png,jpg,json,atlas
 version = 1.0.0
 
 # (list) Application requirements
-# Indispensable pour que requests fonctionne en HTTPS avec Firebase sous Android
 requirements = python3,kivy==2.3.0,kivymd==1.2.0,pillow,urllib3,requests,certifi,openssl,idna,plyer,android
 
 # (str) Presplash image and Icon
@@ -36,7 +35,10 @@ android.permissions = INTERNET, ACCESS_NETWORK_STATE, CAMERA, RECORD_AUDIO, READ
 android.api = 33
 android.minapi = 24
 android.ndk = 25b
-android.archs = arm64-v8a, armeabi-v7a
+
+# Cible uniquement l'architecture 64 bits (évite les échecs de build mémoire/NDK)
+android.archs = arm64-v8a
+
 android.presplash_color = #673AB7
 
 # (bool) Indicate if the application should be fullscreen or not
